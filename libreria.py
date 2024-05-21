@@ -12,6 +12,8 @@ class Libreria:
     - eliminar_libro: Elimina un libro por su título.
     - guardar_libros: Guarda la lista de libros en un archivo JSON.
     - cargar_libros: Carga la lista de libros desde un archivo JSON.
+    - contar_libros: Cuenta el número de libros.
+
     """
 
     def __init__(self):
@@ -61,7 +63,10 @@ class Libreria:
         Retorna:
         list: Una lista de libros que coinciden con el autor buscado.
         """
-        return [libro for libro in self.libros if autor.lower() in libro['autor'].lower()]
+        if len(autor)==0:
+            return None
+        else:
+            return [libro for libro in self.libros if autor.lower() in libro['autor'].lower()]
 
     def eliminar_libro(self, titulo):
         """
@@ -107,6 +112,16 @@ class Libreria:
             return "Libros cargados"
         except FileNotFoundError:
             return "Archivo no encontrado"
+        
+    
+    def contar_libros(self):
+        """
+        Devuelve el número de libros en la biblioteca.
+
+        Retorna:
+        int: El número de libros en la biblioteca.
+        """
+        return len(self.libros)
 
 
 mi_libreria = Libreria()
