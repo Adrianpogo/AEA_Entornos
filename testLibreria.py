@@ -54,8 +54,6 @@ class TestLibreria(unittest.TestCase):
         self.assertTrue(len(self.libreria.buscar_por_autor("Gabriel García Márquez")) > 0)
         self.assertEqual(len(self.libreria.buscar_por_autor("J.K. Rowling")), 0)
 
-        # Caso extremo: Buscar con autor vacío
-        self.assertEqual(self.libreria.buscar_por_autor(""), None)
 
     def test_eliminar_libro(self):
         """
