@@ -63,10 +63,7 @@ class Libreria:
         Retorna:
         list: Una lista de libros que coinciden con el autor buscado.
         """
-        if len(autor)==0:
-            return None
-        else:
-            return [libro for libro in self.libros if autor.lower() in libro['autor'].lower()]
+        return [libro for libro in self.libros if autor.lower() in libro['autor'].lower()]
 
     def eliminar_libro(self, titulo):
         """
